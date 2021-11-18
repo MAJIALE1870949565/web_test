@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>简单计算器</title>
+	</head>
+
+	<body>
+		<script>
+			var value1, value2;
+			value1 = window.prompt("请输入第一个运算数");
+			while(isNaN(value1)) {
+				alert("不是数值，请重新输入");
+				//alert('<br />');
+				value1 = window.prompt("请输入第一个运算数");
+			}
+			value2 = window.prompt("请输入第二个运算数");
+			while(isNaN(value2)) {
+				document.write("不是数值，请重新输入");
+				//document.write('<br />');
+				value2 = window.prompt("请输入第二个运算数");
+			}
+
+			function calculate() {
+				var result;
+				var operator = window.prompt("请输入运算符:+或-或*或/或%");
+				if(operator == "+") {
+					var result = parseInt(value1) + parseInt(value2);
+					alert(value1 + "+" + value2 + "=" + result);
+				} else if(operator == "-") {
+					var result = parseInt(value1) - parseInt(value2);
+					alert(value1 + "-" + value2 + "=" + result);
+				} else if(operator == "*") {
+					var result = parseInt(value1) * parseInt(value2);
+					alert(value1 + "*" + value2 + "=" + result);
+				} else if(operator == "/") {
+					if(value2 != 0) {
+						var result = parseInt(value1) / parseInt(value2);
+						alert(value1 + "/" + value2 + "=" + result);
+					} else {
+						alert("error！除数为0！");
+					}
+				} else if(operator == "%") {
+					var result = parseInt(value1) % parseInt(value2);
+					alert(value1 + "%" + value2 + "=" + result);
+				}
+				while(operator == "/" && value2 == 0) {
+					value2 = window.prompt("请输入第二个运算数");
+					//document.write('<br />');
+					var result = parseInt(value1) / parseInt(value2);
+					alert(value1 + "/" + value2 + "=" + result);
+				}
+			}
+			calculate();
+			//document.write(result);
+		</script>
+	</body>
+
+</html>
