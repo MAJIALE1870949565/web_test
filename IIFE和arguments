@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//IIFE立即调用执行函数
+			(function() {
+				var s1 = 2 + 2;
+				console.log(s1);
+			})();
+
+			(function(a, b) {
+				var s2 = a + b;
+				console.log(s2);
+			})(1, 2);
+
+			//arguments对象：函数不介意传递进来多少参数，也不会因为参数不统一而错误。
+			//函数体内可以通过arguments对象来接收传递进来的参数。arguments对象的length属性可以得到参数的数量。
+			function sum() {
+				var s3 = 0;
+				//console.log(arguments);
+				//console.log(arguments.length);
+				//console.log(arguments[0]);
+				//for(var i = 0; i < arguments.length; i++) {
+				s3 += arguments[i];
+			}
+			return s3;
+			};
+			console.log(sum(1, 2, 3));
+			console.log(sum(10, 20, 30, 40));
+		</script>
+	</body>
+
+</html>
