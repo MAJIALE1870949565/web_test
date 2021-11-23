@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//1.使用 对象
+			var book1 = new Object(); //object 构造函数
+			book1.maintitle = "javaScript";
+			book1.subtitle = "programming";
+			book1.page = 360;
+			book1.price = 30;
+			book1.show = function() {
+				return book1.maintitle + book1.subtitle + book1.page + book1.price;
+			}
+			document.write(book1.maintitle + "<br />");
+			document.write(book1.show() + "<br />");
+			document.write("book1****************" + "<br />"+ "<br />");
+			//2、使用对象直接量创建对象：最直接、最高效、最简便的方法
+			var book2 = {
+				maintitle: "java",
+				subtitle: "programming",
+				page: 200,
+				price: 20,
+				show: function() {
+					return this.maintitle + this.subtitle + this.page + this.price;
+				}
+			}
+			document.write(book2.maintitle + "<br />");
+			document.write(book2.show() + "<br />");
+			document.write("book2****************" + "<br />"+ "<br />");
+ 			//3、使用函数创建对象
+			function book(maintitle, subtitle, page, price) {
+				var o = new Object();
+				o.maintitle = maintitle;
+				o.subtitle = subtitle;
+				o.page = page;
+				o.price = price;
+				o.show = function() {
+					return o.maintitle + o.subtitle + o.page + o.price;
+				}
+				return o;
+			}
+			var book3 = book("js", "programming", 200, 10);
+			document.write(book3.maintitle + "<br />");
+			document.write(book3.show() + "<br />");
+			document.write("book3****************" + "<br />"+ "<br />");
+			//4、使用构造函数创建对象
+			function bookk(maintitle, subtitle, page, price) {
+				//var o=new Object();
+				this.maintitle = maintitle;
+				this.subtitle = subtitle;
+				this.page = page;
+				this.price = price;
+				this.show = function() {
+					return this.maintitle + this.subtitle + this.page + this.price;
+				}
+
+			}
+			//bookk.prototype.add="新增加的属性";
+			var book4 = new bookk("c++", "cprogramming", 200, 10);
+			book4.add = "新增加的属性";
+			var book44 = new bookk("vc++", "cprogramming", 200, 10);
+			document.write(book44.maintitle + "<br />");
+			document.write(book44.add + "<br />");
+			document.write(bookk.prototype + "<br />"); //继承
+			document.write(book4.add + "<br />");
+			document.write(book4.maintitle + "<br />");
+			document.write(book4.show() + "<br />");
+			document.write("book4****************" + "<br />"+ "<br />");
+			//5、使用create()方法创建对象
+			var book5 = Object.create(null, {
+				size: {
+					value: "large",
+				},
+				showw: {
+					get: function() {
+						return this.size;
+					}
+				}
+			});
+			document.write(book5.size + "<br />");
+			document.write(book5.showw + "<br />");
+			document.write("book5****************" + "<br />"+ "<br />");
+		</script>
+
+	</body>
+
+</html>
