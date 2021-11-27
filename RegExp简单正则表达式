@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			/*一:
+			 *方法1.1：
+			 * 语法:var变量= new RegExp("正则表达式","匹配模式");
+			 * 使用typeof检查正则对象，会返回object
+			 * var reg = new RegExp("a");这个正则表达式可以来检查一个字符串中是否含有a
+			 * 在构造函数中可以传递一个匹配模式作为第二个参数，可以是
+			 * i忽略大小写    g全局匹配模式*/
+			var reg1 = new RegExp("a");
+			var reg2 = new RegExp("a", "i");
+			/*方法1.2：
+			 * 使用字面量来创建正则表达式
+			 * 语法:var变量=/正则表达式/匹配模式
+			 * 使用字面量的方式创建更加简单,使用构造函数创建更加灵活*/
+			var reg3 = /a/i;
+
+			var str1 = "a";
+			var str2 = "dsdfA";
+			/*正则表达式的方法:test( )
+			 * 使用这个方法可以用来检查一个字符串是否符合正则表达式的规则，
+			 * 如果符合则返回true，否则返回false
+			 */
+			var result1 = reg1.test(str1);
+			var result2 = reg2.test(str2);
+			var result3 = reg3.test(str2);
+			console.log(typeof reg1);
+			console.log(result1);
+			console.log(result2);
+			console.log(result3);
+			console.log(typeof reg3);
+			/*二：
+			 * 方法2.1：
+			 * l、创建一个正则表达式，检查一个字符串中是否有a或b
+			 * 使用│表示或者的意思*/
+			var reg4 = /a|b/;
+			console.log(reg4.test("dsa"));
+			/*方法2.2
+			 *[]里的内容也是或的关系[ab] == a | b
+			 *[a-z]任意小写字母    [A-z]任意大写字母      [A-z]任意字母         [0-9]任意数字    
+			 */
+			var reg5 = /[A-z]/;
+			console.log(reg5.test("dsa"));
+			//检查一个字符串中是否含有abc或adc或aec
+			var reg6 = /a[ bde]c/;
+			console.log(reg6.test("abc"));
+			//[^ ]除了括号里的内容
+			var reg7 = /[^bde]/;
+			console.log(reg7.test("abc"));
+			var reg8 = /[0-9]/;
+			console.log(reg8.test("1abc"));
+		</script>
+
+	</body>
+
+</html>
